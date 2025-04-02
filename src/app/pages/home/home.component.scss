@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../../../fonts/Roboto/Roboto-Italic-VariableFont_wdth,wght.ttf'),
+        url('../../../fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf'),
+        url('../../../fonts/Roboto/static/Roboto-Medium.ttf');
+}
+
+
+
+.dashboard {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 20px auto;
+        font-family: 'Roboto';
+        
+        width: 100%;
+
+        &__home_title {
+            margin: 35px auto 10px;
+            width: fit-content;
+            padding: 15px;
+            color: white;
+            border-radius: 20px;
+            background-color: rgb(5, 118, 118);
+        }
+
+        &__MainheadBlock {
+           display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+
+            &--first {
+                margin: 0 20px;
+                padding: 30px;
+                border: solid rgb(5, 118, 118);
+                border-radius: 20px;
+            }
+            &--second {
+                margin: 0 20px;
+                padding: 30px;
+                border: solid rgb(5, 118, 118);
+                border-radius: 20px;
+         }
+
+        }
+}
+
+// ::ng-deep .ngx-charts text.pie-label:hover {
+//     font-size: 16px !important; // Taille du texte
+//     font-weight: bold;          // Texte en gras
+//     fill: greenyellow;       // Couleur rouge pour les labels
+//   }
