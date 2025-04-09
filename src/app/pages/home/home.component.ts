@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 import { Country } from 'src/app/core/models/Olympic';
@@ -12,18 +13,21 @@ import { Country } from 'src/app/core/models/Olympic';
 })
 export class HomeComponent implements OnInit {
 
+
   public olympics$: Observable<Country[] | null> = this.olympicService.getOlympics();
   public chartData$: Observable<{ name: string, value: number, nbJo: number, nbCountries: number }[]> | null = null;
+  
 
   public nbJo: number = 0;  
   public nbCountries: number = 0;  
 
-  constructor(private olympicService: OlympicService) {}
+  constructor(private olympicService: OlympicService, private router: Router) {}
 
   gradient: boolean = true;
   showLabels: boolean = true;
 
   ngOnInit(): void {
+
     this.olympicService.loadInitialData();
 
     this.chartData$ = this.olympics$.pipe(
@@ -32,9 +36,10 @@ export class HomeComponent implements OnInit {
 
         return countries.map(country => ({
           name: country.country,
-          value: country.participations.reduce((total, p) => total + p.medalsCount, 0) || 0, // Évite undefined
-          nbJo: country.participations.length || 0,  // Assure une valeur correcte
-          nbCountries: countries.length || 0 // Assure une valeur correcte
+          value: country.participations.reduce((total, p) => total + p.medalsCount, 0) || 0,
+          nbJo: country.participations.length || 0, 
+          nbCountries: countries.length || 0, 
+        
         }));
       })
     );
@@ -47,4 +52,20 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+
+  selectCountry(event: { name: string }) {
+    this.olympics$.subscribe(countries => {
+      const selectedCountry = countries?.find(c => c.country === event.name);
+      if (selectedCountry) {
+        console.log(selectedCountry);
+        
+        this.olympicService.setSelectedCountry(selectedCountry); 
+        this.router.navigateByUrl(`/country_detail/${selectedCountry.id}`); 
+      }
+      else {
+        console.log("no country selected !");
+      }
+    });
+  }
+
 }
