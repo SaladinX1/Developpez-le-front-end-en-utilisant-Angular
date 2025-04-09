@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Country } from '../models/Olympic'
 
@@ -10,6 +10,7 @@ import { Country } from '../models/Olympic'
 export class OlympicService {
   private olympicUrl = './assets/mock/olympic.json';
   private olympics$ = new BehaviorSubject<Country[] | null>(null);
+  private selectedCountry$ = new BehaviorSubject<Country | null>(null);
 
   constructor(private http: HttpClient) {}
 
@@ -28,5 +29,12 @@ export class OlympicService {
 
   getOlympics() {
     return this.olympics$.asObservable();
+  }
+  setSelectedCountry(country: Country) {
+    this.selectedCountry$.next(country);
+  }
+
+  getSelectedCountry(): Observable<Country | null> {
+    return this.selectedCountry$.asObservable();
   }
 }
