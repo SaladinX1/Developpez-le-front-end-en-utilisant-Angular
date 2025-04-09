@@ -13,7 +13,6 @@
         text-align: center;
         margin: 20px auto;
         font-family: 'Roboto';
-        
         width: 100%;
 
         &__home_title {
@@ -47,8 +46,21 @@
         }
 }
 
-// ::ng-deep .ngx-charts text.pie-label:hover {
-//     font-size: 16px !important; // Taille du texte
-//     font-weight: bold;          // Texte en gras
-//     fill: greenyellow;       // Couleur rouge pour les labels
-//   }
+
+@media screen and (max-width: 540px) {
+    .dashboard__MainheadBlock {
+        flex-direction: column;
+        &--first {
+            margin: 10px;
+            padding: 15px;
+            
+        }
+        &--second {
+            margin: 10px;
+            padding: 15px;
+         
+     }
+        
+      
+    }
+}
