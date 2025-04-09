@@ -1,0 +1,53 @@
+
+  <div *ngIf="selectedCountry" class="country-details">
+
+    <button (click)="goBack()" class="country-details__back-button">Retour à l'accueil</button>
+
+    <h2 class="country-details__country-name">{{ selectedCountry.country }}</h2>
+  
+    <div class="country-details__container_info_block">
+        <div class="country-details__container_info_block--info-block">
+          <h3>Nombre de participations aux JO</h3>
+          <span class="info-value">
+            {{ selectedCountry.participations.length }}
+          </span>
+        </div>
+      
+        <div class="country-details__container_info_block--info-block">
+          <h3>Total des médailles remportées</h3>
+          <span class="info-value">
+            {{ totalMedals }}
+          </span>
+        </div>
+      
+        <div class="country-details__container_info_block--info-block">
+          <h3 class="participation-title">Détails des participations :</h3>
+          <strong>Athlètes :</strong>  {{ totalAthletes }}
+        </div>
+   </div>
+  
+  
+   
+     <ngx-charts-line-chart class="line_charts"
+    
+     [scheme]="colorScheme"
+     [xAxis]="xAxis"
+     [yAxis]="yAxis"
+     [xAxisLabel]="xAxisLabel"
+     [yAxisLabel]="yAxisLabel"
+     [results]="multi"
+     [timeline]="timeline"
+      [showXAxisLabel]="showXAxisLabel"
+     [showYAxisLabel]="showYAxisLabel"
+     (select)="onSelect($event)"
+     (activate)="onActivate($event)"
+     (deactivate)="onDeactivate($event)"
+     >
+   </ngx-charts-line-chart>
+    
+  </div>
+  
+  <div *ngIf="!selectedCountry">
+    <p>Aucune donnée disponible. Retourner à l'accueil.</p>
+    <button (click)="goBack()" class="back-button">Accueil</button>
+  </div>
