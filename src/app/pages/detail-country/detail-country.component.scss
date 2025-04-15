@@ -48,6 +48,36 @@
     margin: 20px auto;
 }
 
+.dc_noData {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    height: 100vh;
+    background-color: aqua;
+    border-radius: 15px;
+    
+    & button {
+        outline: none;
+        margin: 10px 0;
+        padding: 15px;
+        border: none;
+        cursor: pointer;
+        border-radius: 15px;
+        font-size: 15px;
+        transition: all .2s ease-in-out;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+
+
+// Responsive page country_details
+
 
 @media screen and (max-width: 860px) {
    
