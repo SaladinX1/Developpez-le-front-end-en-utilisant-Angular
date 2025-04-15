@@ -1,4 +1,6 @@
 
+ <!-- Injection des données Bind dans l'attribut selectedCountry -->
+
   <div *ngIf="selectedCountry" class="country-details">
 
     <button (click)="goBack()" class="country-details__back-button">Retour à l'accueil</button>
@@ -47,7 +49,9 @@
     
   </div>
   
-  <div *ngIf="!selectedCountry">
-    <p>Aucune donnée disponible. Retourner à l'accueil.</p>
+  <!-- Gestion affichage erreur en cad de données non disponibles -->
+
+  <div *ngIf="!selectedCountry" class="dc_noData">
+    <p>Aucune donnée disponible... Retournez à l'accueil.</p>
     <button (click)="goBack()" class="back-button">Accueil</button>
   </div>

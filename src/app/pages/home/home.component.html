@@ -24,7 +24,8 @@
 </div> 
 
 
-      <div  *ngIf="chartData$ | async as chartData" class="pie_figure">
+    <!-- Affichage data chart via binding attribute ChartData et subscription async -->
+<div  *ngIf="chartData$ | async as chartData" class="pie_figure">
             <ngx-charts-pie-chart class="ngx_pie"
               
               [results]="chartData"

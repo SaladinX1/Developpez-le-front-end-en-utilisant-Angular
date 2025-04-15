@@ -20,6 +20,7 @@ export class DetailCountryComponent implements OnInit {
   constructor( private olympicService: OlympicService, private router: Router) {}
 
   ngOnInit(): void {
+    // recuperation du pays selectioné et reformattage des données pour les médailles et participations
     this.olympicService.getSelectedCountry().subscribe(country => {
       if (country) {
         this.selectedCountry = country;
@@ -33,6 +34,7 @@ export class DetailCountryComponent implements OnInit {
           0
         );
 
+        // Formattage des données pour le chart line dans un tableau et liaison par attribut bind multi
         this.multi = [
           {
             name: country.country,
@@ -66,12 +68,13 @@ export class DetailCountryComponent implements OnInit {
 
   colorScheme = 'cool'
 
-
+// Fonction retour page accueil
   goBack(): void {
     this.router.navigate(['/']); 
   }
 
 
+  
   onSelect(event: any): void {
     console.log('Item sélectionné', event);
     alert(`Année: ${event.name} | Médailles totales: ${event.value}`);

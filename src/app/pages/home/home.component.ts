@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
 
     this.olympicService.loadInitialData();
 
+    // Récupération data spécifiques pour 
     this.chartData$ = this.olympics$.pipe(
       map((countries: Country[] | null) => {
         if (!countries) return [];
@@ -53,6 +54,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  // Methode de récupération data Olympics pour selection pays choisi et redirection page country_details
   selectCountry(event: { name: string }) {
     this.olympics$.subscribe(countries => {
       const selectedCountry = countries?.find(c => c.country === event.name);
