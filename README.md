@@ -8,7 +8,7 @@ Enjoy and keep supporting your country !
 
 ## Technologies 
 
-Ts, Scss, html
+Angular(version ^19.2.5), git, github, vscode
 
 ## Author
 
