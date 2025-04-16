@@ -1,0 +1,14 @@
+# 📘 Référentiel des fonctions de l'application Olympics Games (Angular)
+
+| Nom de la fonction       | Description                                                                 | Module / Classe                               | Type de retour                         | Paramètres (arguments)                       |
+|--------------------------|-----------------------------------------------------------------------------|-------------------------------------|----------------------------------------|----------------------------------------------|
+| `loadInitialData()`      | Charge les données des pays depuis un fichier JSON                         | `OlympicService`                     | `Observable<Country[]>`                | Aucun                                        |
+| `getOlympics()`          | Expose les données olympiques via Observable                               | `OlympicService`                     | `Observable<Country[] \| null>`        | Aucun                                        |
+| `setSelectedCountry()`   | Définit le pays sélectionné dans un `BehaviorSubject`                      | `OlympicService`                     | `void`                                 | `country: Country`                           |
+| `getSelectedCountry()`   | Renvoie le pays sélectionné (asObservable)                                 | `OlympicService`                     | `Observable<Country \| null>`          | Aucun                                        |
+| `ngOnInit()`             | Initialise les données à l'ouverture de la page                            | `HomeComponent`, `DetailCountryComponent`             | `void`                                 | Aucun                                        |
+| `selectCountry()`        | Sélectionne un pays et navigue vers sa page détail                         | `HomeComponent`                      | `void`                                 | `event: { name: string }`                    |
+| `goBack()`               | Navigue vers la page d’accueil                                             | `DetailCountryComponent`             | `void`                                 | Aucun                                        |
+| `onSelect()`             | Gère le clic sur un élément du graphique                                   | `DetailCountryComponent`             | `void`                                 | `event: any`                                 |
+| `onActivate()`           | Gère l’activation d’un élément du graphique                                | `DetailCountryComponent`             | `void`                                 | `event: any`                                 |
+| `onDeactivate()`         | Gère la désactivation d’un élément du graphique                            | `DetailCountryComponent`             | `void`                                 | `event: any`                                 |
